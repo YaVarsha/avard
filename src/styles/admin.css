@@ -1,0 +1,238 @@
+﻿.admin-login-section {
+  min-height: calc(100vh - 82px);
+  display: grid;
+  place-items: center;
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(242, 107, 47, 0.12), transparent 30%),
+    linear-gradient(135deg, #eff7ef 0%, #ffffff 52%, #fff4e8 100%);
+}
+
+.admin-login-card {
+  width: min(100%, 520px);
+  padding: 36px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.admin-login-icon {
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  color: #fff;
+  background: var(--green);
+  border-radius: 10px;
+  font-size: 1.65rem;
+}
+
+.admin-login-card > span,
+.admin-topbar span {
+  color: var(--orange);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-heavy);
+  text-transform: uppercase;
+}
+
+.admin-login-card h1,
+.admin-topbar h1 {
+  margin: 8px 0 24px;
+  font-size: var(--heading-sm);
+}
+
+.admin-login-card form,
+.admin-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-login-card label,
+.admin-panel label {
+  display: grid;
+  gap: 8px;
+  color: #31404d;
+  font-weight: var(--weight-bold);
+}
+
+.admin-login-card input,
+.admin-panel input,
+.admin-panel textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.admin-panel textarea {
+  min-height: 190px;
+  resize: vertical;
+}
+
+.admin-login-card button,
+.admin-panel button,
+.admin-sidebar button,
+.admin-topbar a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 18px;
+  color: #fff;
+  background: var(--orange);
+  border: 0;
+  border-radius: 7px;
+  font-weight: var(--weight-bold);
+}
+
+.admin-login-card p {
+  margin: 0;
+  color: var(--orange-dark);
+}
+
+.admin-login-card small,
+.admin-panel small {
+  color: var(--muted);
+}
+
+.admin-dashboard {
+  min-height: calc(100vh - 82px);
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  background: #f5f8f4;
+}
+
+.admin-sidebar {
+  position: sticky;
+  top: 82px;
+  height: calc(100vh - 82px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px;
+  color: #dfe9e3;
+  background: #0d2018;
+}
+
+.admin-brand {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: var(--weight-heavy);
+}
+
+.admin-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.admin-sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  color: #c2d6cc;
+  border-radius: 7px;
+}
+
+.admin-sidebar nav a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-sidebar button {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-content {
+  padding: 34px;
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.admin-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.admin-stat-grid article,
+.admin-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-stat-grid article {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+}
+
+.admin-stat-grid svg {
+  color: var(--green);
+  font-size: 1.45rem;
+}
+
+.admin-stat-grid span {
+  color: var(--muted);
+}
+
+.admin-stat-grid strong {
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.admin-panel-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+}
+
+.admin-panel {
+  padding: 24px;
+}
+
+.admin-panel h2 {
+  margin: 0 0 4px;
+  font-size: var(--text-xl);
+}
+
+.admin-table {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-table div {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr 1fr 0.8fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background: #f7fbf8;
+  border-radius: 7px;
+}
+
+.admin-table strong {
+  color: var(--green-dark);
+}
+
+.newsletter-admin-panel {
+  grid-column: 1 / -1;
+}
+

@@ -1,0 +1,239 @@
+﻿:root {
+  /* --font-sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
+  --font-sans: "Open Sans", sans-serif;
+  --green: #1f7a53;
+  --green-dark: #14533a;
+  --orange: #f26b2f;
+  --orange-dark: #d9541f;
+  --blue: #2467a8;
+  --navy: #07116f;
+  --ink: #17212b;
+  --muted: #607080;
+  --paper: #ffffff;
+  --soft: #f5f8f4;
+  --cream: #fff4e8;
+  --line: #dfe8e2;
+  --shadow: 0 18px 45px rgba(23, 33, 43, 0.12);
+  --shadow-soft: 0 12px 34px rgba(23, 33, 43, 0.08);
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.375rem;
+  --heading-sm: clamp(1.45rem, 2vw, 1.75rem);
+  --heading-md: clamp(2rem, 2.8vw, 2.5rem);
+  --heading-lg: clamp(2.25rem, 4vw, 3rem);
+  --heading-xl: clamp(2.25rem, 4vw, 3rem);
+  --leading-body: 1.72;
+  --leading-heading: 1.12;
+  --weight-medium: 600;
+  --weight-bold: 700;
+  --weight-heavy: 800;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--ink);
+  background: #fff;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  font-weight: var(--weight-heavy);
+  line-height: var(--leading-heading);
+  letter-spacing: 0;
+}
+
+p,
+li,
+input,
+textarea,
+button,
+a {
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  min-height: 70vh;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.page-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: var(--green-dark);
+  font-weight: var(--weight-bold);
+}
+
+.site-header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(23, 33, 43, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.nav-inner {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navbar-brand,
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 68px;
+  height: 58px;
+  object-fit: contain;
+  padding: 0;
+}
+
+.brand-text {
+  display: grid;
+  line-height: 1.1;
+}
+
+.brand-text strong {
+  color: var(--green-dark);
+  font-size: var(--text-xl);
+}
+
+.brand-text small {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: #26323d;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+}
+
+.nav-menu a:hover,
+.nav-menu .active-link {
+  color: var(--green);
+}
+
+.nav-donate,
+.primary-btn,
+.submit-donation,
+.footer-donate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--orange);
+  color: #fff !important;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-donate {
+  padding: 11px 18px;
+}
+
+.primary-btn,
+.submit-donation,
+.footer-donate {
+  padding: 14px 22px;
+}
+
+.nav-donate:hover,
+.primary-btn:hover,
+.submit-donation:hover,
+.footer-donate:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(242, 107, 47, 0.26);
+}
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 21px;
+  border: 1px solid var(--green);
+  border-radius: 7px;
+  color: var(--green-dark);
+  font-weight: var(--weight-bold);
+  background: #fff;
+}
+
+.navbar-toggler {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--green-dark);
+  cursor: pointer;
+}
+

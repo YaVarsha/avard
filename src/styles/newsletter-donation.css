@@ -1,0 +1,706 @@
+﻿.newsletter-section {
+  padding: 80px 0;
+  background: var(--green-dark);
+}
+
+.newsletter-panel {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  color: #fff;
+}
+
+.newsletter-panel h2 {
+  color: #fff;
+}
+
+.newsletter-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.newsletter-form input,
+.newsletter-form button,
+.contact-form input,
+.contact-form textarea,
+.donation-form input,
+.donation-form textarea {
+  min-height: 48px;
+  border-radius: 7px;
+}
+
+.newsletter-form input,
+.contact-form input,
+.contact-form textarea,
+.donation-form input,
+.donation-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fff;
+}
+
+.newsletter-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  padding: 0 20px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.form-message,
+.donation-status {
+  grid-column: 1 / -1;
+  color: var(--green-dark);
+  background: #e9f7ef;
+  border: 1px solid #bfe4cb;
+  border-radius: 7px;
+  padding: 12px 14px;
+  margin: 4px 0 0;
+}
+
+.pledge-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(11, 24, 18, 0.64);
+  backdrop-filter: blur(8px);
+  animation: modalFadeIn 0.25s ease both;
+}
+
+.pledge-modal-card {
+  position: relative;
+  width: min(100%, 480px);
+  padding: 38px 34px 32px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(31, 122, 83, 0.14), transparent 36%),
+    #fff;
+  border: 1px solid #dfe8e2;
+  border-radius: 10px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+  animation: modalCardIn 0.45s cubic-bezier(0.2, 0.82, 0.2, 1) both;
+}
+
+.pledge-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  background: #f3f7f4;
+  border: 0;
+  border-radius: 50%;
+}
+
+.pledge-modal-close:hover {
+  color: #fff;
+  background: var(--orange);
+}
+
+.pledge-success-icon {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  color: #fff;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 12px rgba(31, 122, 83, 0.12);
+  animation: successPop 0.55s cubic-bezier(0.2, 0.82, 0.2, 1) 0.12s both;
+}
+
+.pledge-modal-card > span {
+  display: inline-block;
+  color: var(--orange);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-heavy);
+  text-transform: uppercase;
+}
+
+.pledge-modal-card h2 {
+  margin: 8px 0 12px;
+  font-size: var(--heading-sm);
+}
+
+.pledge-modal-card p {
+  margin: 0 auto 24px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.pledge-modal-action {
+  min-width: 140px;
+  min-height: 46px;
+  color: #fff;
+  background: var(--orange);
+  border: 0;
+  border-radius: 7px;
+  font-weight: var(--weight-bold);
+}
+
+.pledge-modal-action:hover {
+  background: var(--orange-dark);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes successPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
+  }
+  70% {
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.newsletter-form .form-message {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.page-hero {
+  position: relative;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(110deg, rgba(20, 83, 58, 0.94), rgba(31, 122, 83, 0.72)), url("../assets/images/avard-website/photos/banner.jpg") center/cover;
+}
+
+.page-hero .container {
+  max-width: 920px;
+  margin-left: max(20px, calc((100% - 1180px) / 2));
+}
+
+.page-hero h1 {
+  margin: 12px 0 18px;
+  font-size: var(--heading-lg);
+  line-height: var(--leading-heading);
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.page-hero p {
+  max-width: 720px;
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+  margin: 0;
+}
+
+.program-card,
+.value-card {
+  padding: 30px;
+}
+
+.program-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #eaf5ee;
+  color: var(--green);
+  font-size: 1.75rem;
+  margin-bottom: 22px;
+}
+
+.program-card h2,
+.value-card h3,
+.project-card h2 {
+  margin: 0 0 12px;
+  font-size: var(--text-xl);
+}
+
+.program-card p,
+.value-card p,
+.project-card p {
+  color: var(--muted);
+  line-height: var(--leading-body);
+  margin: 0;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.project-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card div {
+  padding: 26px;
+}
+
+.contact-layout,
+.donate-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.donate-layout {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.contact-info,
+.contact-form,
+.donation-form {
+  padding: 30px;
+}
+
+.contact-info h2 {
+  margin: 0 0 20px;
+  font-size: var(--heading-sm);
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.contact-info svg {
+  color: var(--green);
+}
+
+.contact-form,
+.donation-form {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-form label,
+.donation-form label {
+  display: grid;
+  gap: 8px;
+  color: #31404d;
+  font-weight: var(--weight-bold);
+}
+
+.contact-form textarea,
+.donation-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-section {
+  display: grid;
+  gap: 16px;
+}
+
+.form-section h2 {
+  margin: 0;
+  font-size: var(--heading-sm);
+}
+
+.amount-grid,
+.two-column-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.amount-grid button {
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: var(--weight-heavy);
+  cursor: pointer;
+}
+
+.amount-grid button.selected {
+  border-color: var(--green);
+  color: var(--green-dark);
+  background: #eaf5ee;
+}
+
+.donation-summary {
+  display: grid;
+  gap: 18px;
+  position: sticky;
+  top: 110px;
+}
+
+.summary-card,
+.bank-card,
+.payment-note {
+  padding: 26px;
+}
+
+.summary-card h2 {
+  margin: 8px 0;
+  font-size: var(--heading-md);
+  color: var(--green-dark);
+}
+
+.summary-card p,
+.bank-card p,
+.payment-note p {
+  color: var(--muted);
+  line-height: var(--leading-body);
+}
+
+.summary-card ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.summary-card li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: #344453;
+}
+
+.summary-card svg {
+  color: var(--green);
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.bank-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+
+.bank-card small {
+  display: block;
+  color: #7a5a17;
+  background: #fff6d8;
+  border-radius: 7px;
+  padding: 11px 12px;
+  line-height: 1.55;
+}
+
+.payment-note {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.payment-note svg {
+  color: var(--green);
+  font-size: 1.5rem;
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+.donation-qr-card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.donation-qr-card span {
+  color: var(--orange);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-heavy);
+  text-transform: uppercase;
+}
+
+.donation-qr-frame {
+  width: 190px;
+  height: 190px;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #edf2ef;
+  border-radius: 8px;
+}
+
+.donation-qr-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.donation-qr-card p {
+  margin: 0;
+  color: var(--ink);
+}
+
+.donation-qr-card small {
+  color: var(--muted);
+  font-weight: var(--weight-bold);
+}
+
+.donation-qr-card.compact {
+  width: 250px;
+  justify-items: start;
+  margin-top: 24px;
+  padding: 14px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.donation-qr-card.compact .donation-qr-frame {
+  width: 160px;
+  height: 160px;
+}
+
+.donation-qr-card.compact p,
+.donation-qr-card.compact small {
+  color: #dfe9e3;
+}
+
+.newsletter-page-section {
+  padding: 90px 0;
+  background: linear-gradient(135deg, #ffffff 0%, var(--soft) 52%, var(--cream) 100%);
+}
+
+.newsletter-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.82fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.newsletter-copy h2 {
+  margin: 8px 0 16px;
+  font-size: var(--heading-md);
+}
+
+.newsletter-copy > p {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  margin: 0 0 30px;
+}
+
+.newsletter-update-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.newsletter-update-card,
+.newsletter-page-form,
+.daily-newsletter-panel,
+.newsletter-archive-list article {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.newsletter-update-card {
+  padding: 24px;
+}
+
+.newsletter-update-card div {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: #eaf5ee;
+  color: var(--green);
+  font-size: 1.45rem;
+}
+
+.newsletter-update-card h3 {
+  margin: 0 0 10px;
+  font-size: var(--text-lg);
+}
+
+.newsletter-update-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.daily-newsletter-panel {
+  padding: 28px;
+  border-left: 4px solid var(--orange);
+}
+
+.daily-newsletter-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.daily-newsletter-header time,
+.newsletter-archive-list time {
+  color: var(--green-dark);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}
+
+.daily-newsletter-panel h2 {
+  margin: 0 0 12px;
+  font-size: var(--heading-sm);
+}
+
+.daily-newsletter-panel p {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.daily-newsletter-panel ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: #31404d;
+}
+
+.newsletter-archive {
+  margin-top: 28px;
+}
+
+.newsletter-archive-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.newsletter-archive-list article {
+  padding: 20px;
+}
+
+.newsletter-archive-list h3 {
+  margin: 6px 0 8px;
+  font-size: var(--text-lg);
+}
+
+.newsletter-archive-list p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.newsletter-page-form {
+  display: grid;
+  gap: 16px;
+  padding: 30px;
+  position: sticky;
+  top: 110px;
+}
+
+.newsletter-form-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 1.7rem;
+}
+
+.newsletter-page-form h2 {
+  margin: 0 0 6px;
+  font-size: var(--heading-sm);
+}
+
+.newsletter-page-form label {
+  display: grid;
+  gap: 8px;
+  color: #31404d;
+  font-weight: var(--weight-bold);
+}
+
+.newsletter-page-form input {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fff;
+}
+
+.floating-newsletter {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 950;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 14px 32px rgba(242, 107, 47, 0.36);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.floating-newsletter:hover {
+  background: var(--orange-dark);
+  transform: translateY(-3px);
+}
+
+.floating-newsletter svg {
+  font-size: 1.45rem;
+}
+
