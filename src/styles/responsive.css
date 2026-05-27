@@ -164,29 +164,62 @@
     min-height: 360px;
   }
 
+  .rd-week-heading {
+    max-width: 360px;
+    margin-bottom: 30px;
+  }
+
+  .rd-week-heading h2 {
+    font-size: 1.75rem;
+  }
+
+  .rd-week-heading p {
+    font-size: var(--text-sm);
+    line-height: 1.65;
+  }
+
   .rd-week-gallery-shell {
-    padding: 0 28px;
+    max-width: 360px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
   }
 
   .rd-week-slider .slick-list {
-    margin: 0 -10px;
+    margin: 0;
+    padding-bottom: 24px;
   }
 
   .rd-week-slide {
-    padding: 0 10px;
+    padding: 0 8px;
   }
 
   .rd-week-slider .rd-gallery-arrow {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
 
   .rd-week-slider .rd-gallery-arrow-left {
-    left: 0;
+    left: -6px;
   }
 
   .rd-week-slider .rd-gallery-arrow-right {
-    right: 0;
+    right: -6px;
+  }
+
+  .rd-front-caption {
+    padding: 18px;
+  }
+
+  .rd-front-caption h3,
+  .rd-flip-back h3 {
+    font-size: 1.15rem;
+    overflow-wrap: anywhere;
+  }
+
+  .rd-front-caption span,
+  .rd-flip-back p {
+    font-size: var(--text-sm);
   }
 
   .footer-bottom .container {
@@ -201,5 +234,66 @@
     bottom: 16px;
     width: 52px;
     height: 52px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .rd-week-section {
+    padding: 54px 0;
+  }
+
+  .rd-week-heading {
+    max-width: 300px;
+    margin-bottom: 24px;
+  }
+
+  .rd-week-heading h2 {
+    font-size: 1.45rem;
+  }
+
+  .rd-week-heading > span {
+    font-size: var(--text-sm);
+  }
+
+  .rd-week-heading p {
+    font-size: 0.8125rem;
+  }
+
+  .rd-week-gallery-shell {
+    max-width: 300px;
+  }
+
+  .rd-flip-card,
+  .rd-flip-inner {
+    min-height: 330px;
+  }
+
+  .rd-week-slide {
+    padding: 0 6px;
+  }
+
+  .rd-front-caption {
+    padding: 15px;
+  }
+
+  .rd-flip-back {
+    padding: 22px;
+  }
+
+  .rd-week-slider .rd-gallery-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .rd-week-slider .rd-gallery-arrow-left {
+    left: -2px;
+  }
+
+  .rd-week-slider .rd-gallery-arrow-right {
+    right: -2px;
   }
 }

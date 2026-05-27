@@ -1,4 +1,5 @@
 import Slider from "react-slick"
+import { useEffect, useState } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import jayprakash from "../assets/images/avard-website/photos/shri-jaypraksh-narayan-optimized.jpg"
 import kamladevi from "../assets/images/avard-website/photos/smt-kamladevi-chattopadhyay1-1-optimized.jpg"
@@ -60,17 +61,54 @@ function GalleryArrow({ className, onClick, direction }) {
   )
 }
 
+function useViewportSlides() {
+  const getSlidesToShow = () => {
+    if (typeof window === "undefined") {
+      return 3
+    }
+
+    if (window.innerWidth <= 680) {
+      return 1
+    }
+
+    if (window.innerWidth <= 1100) {
+      return 2
+    }
+
+    return 3
+  }
+
+  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSlidesToShow(getSlidesToShow())
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+  return slidesToShow
+}
+
 function RuralDevelopmentWeek() {
+  const slidesToShow = useViewportSlides()
+
   const settings = {
     dots: false,
     infinite: true,
     speed: 600,
-    slidesToShow: 3,
+    slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3200,
     pauseOnHover: true,
-    arrows: true,
+    arrows: slidesToShow > 1,
     prevArrow: <GalleryArrow direction="left" />,
     nextArrow: <GalleryArrow direction="right" />,
     responsive: [
@@ -102,7 +140,7 @@ function RuralDevelopmentWeek() {
         </div>
 
         <div className="rd-week-gallery-shell" aria-label="Rural Development Week people gallery">
-          <Slider className="rd-week-slider" {...settings}>
+          <Slider className="rd-week-slider" key={`rd-week-${slidesToShow}`} {...settings}>
             {people.map((person, index) => (
               <div className="rd-week-slide" key={person.name}>
                 <article className="rd-flip-card" data-aos="fade-up" data-aos-delay={index * 70} tabIndex="0">
