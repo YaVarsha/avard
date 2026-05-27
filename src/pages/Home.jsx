@@ -16,7 +16,6 @@ import AwardsRecognition from "../components/AwardsRecognition"
 import PartnersSection from "../components/PartnersSection"
 
 function Home() {
-
   return (
 
     <>

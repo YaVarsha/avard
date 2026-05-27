@@ -21,7 +21,7 @@ function Navbar() {
       <nav className="navbar" aria-label="Primary navigation">
         <div className="container nav-inner">
           <Link className="navbar-brand" to="/" onClick={closeMenu}>
-            <img src="/favicon.png" alt="AVARD logo" className="logo" width="68" height="58" />
+            <img src="/avard-logo.png" alt="AVARD logo" className="logo" width="68" height="58" />
             <span className="brand-text">
               <strong>AVARD</strong>
               <small>Rural Development</small>

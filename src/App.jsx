@@ -3,8 +3,8 @@ import React, { lazy, Suspense, useEffect } from "react"
 
 import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
 import FloatingNewsletter from "./components/FloatingNewsletter"
+import Footer from "./components/Footer"
 
 const About = lazy(() => import("./pages/About"))
 const ProgramsPage = lazy(() => import("./pages/ProgramsPage"))

@@ -13,7 +13,7 @@ function Footer() {
       <div className="container footer-grid">
         <div className="footer-about">
           <Link className="footer-brand" to="/">
-            <img src="/favicon.png" alt="AVARD logo" width="68" height="58" loading="lazy" decoding="async" />
+            <img src="/avard-logo.png" alt="AVARD logo" width="68" height="58" loading="lazy" decoding="async" />
             <span>
               <strong>AVARD</strong>
               <small>Rural Development Since 1958</small>
