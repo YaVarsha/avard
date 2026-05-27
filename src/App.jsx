@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import React, { lazy, Suspense, useEffect } from "react"
-import AOS from "aos"
-import "aos/dist/aos.css"
 
-const Home = lazy(() => import("./pages/Home"))
+import Home from "./pages/Home"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+import FloatingNewsletter from "./components/FloatingNewsletter"
+
 const About = lazy(() => import("./pages/About"))
 const ProgramsPage = lazy(() => import("./pages/ProgramsPage"))
 const ProjectsPage = lazy(() => import("./pages/ProjectsPage"))
@@ -13,26 +15,34 @@ const NewsletterPage = lazy(() => import("./pages/NewsletterPage"))
 const AdminLogin = lazy(() => import("./pages/AdminLogin"))
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"))
 
-const Navbar = lazy(() => import("./components/Navbar"))
-const Footer = lazy(() => import("./components/Footer"))
-const FloatingNewsletter = lazy(() => import("./components/FloatingNewsletter"))
-
 function App() {
   useEffect(() => {
-    AOS.init({
-      duration: 850,
-      easing: "ease-out-cubic",
-      once: true,
-      offset: 80,
-    })
+    const loadAnimations = () => {
+      Promise.all([import("aos"), import("aos/dist/aos.css")]).then(([{ default: AOS }]) => {
+        AOS.init({
+          duration: 850,
+          easing: "ease-out-cubic",
+          once: true,
+          offset: 80,
+        })
+      })
+    }
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(loadAnimations)
+      return () => window.cancelIdleCallback(idleId)
+    }
+
+    const timeoutId = window.setTimeout(loadAnimations, 1)
+    return () => window.clearTimeout(timeoutId)
   }, [])
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<div className="page-loading">Loading AVARD...</div>}>
-        <Navbar />
+      <Navbar />
 
-        <main>
+      <main>
+        <Suspense fallback={<div className="page-loading">Loading AVARD...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -44,11 +54,11 @@ function App() {
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
-        </main>
+        </Suspense>
+      </main>
 
-        <FloatingNewsletter />
-        <Footer />
-      </Suspense>
+      <FloatingNewsletter />
+      <Footer />
     </BrowserRouter>
   )
 }

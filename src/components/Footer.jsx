@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaShieldAlt, FaYoutube } from "react-icons/fa"
-import logo from "../assets/images/avard-logo-1.png"
 import DonationQr from "./DonationQr"
 import { siteIdentity } from "../data/siteIdentity"
 import impactStrip from "../assets/images/footer-impact-strip.svg"
@@ -14,7 +13,7 @@ function Footer() {
       <div className="container footer-grid">
         <div className="footer-about">
           <Link className="footer-brand" to="/">
-            <img src={logo} alt="AVARD logo" />
+            <img src="/favicon.png" alt="AVARD logo" width="68" height="58" loading="lazy" decoding="async" />
             <span>
               <strong>AVARD</strong>
               <small>Rural Development Since 1958</small>

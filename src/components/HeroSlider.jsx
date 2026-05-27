@@ -60,6 +60,7 @@ link: "/donate"
 function HeroSlider() {
 
 const [current,setCurrent] = useState(0)
+const slide = slides[current]
 
 const goToSlide = (direction) => {
 setCurrent((prev)=>(prev + direction + slides.length)%slides.length)
@@ -79,15 +80,22 @@ return ()=>clearInterval(interval)
 
 return(
 
-<section className="hero-slider">
-
-{slides.map((slide,index)=>(
+<section className="hero-slider" aria-roledescription="carousel" aria-label="AVARD featured programs">
 
 <div
-key={index}
-className={`slide ${index===current ? "active" : ""}`}
-style={{backgroundImage:`url(${slide.image})`}}
+key={slide.title}
+className="slide active"
+aria-live="polite"
 >
+
+<img
+className="slide-image"
+src={slide.image}
+alt=""
+loading={current === 0 ? "eager" : "lazy"}
+fetchPriority={current === 0 ? "high" : "auto"}
+decoding={current === 0 ? "sync" : "async"}
+/>
 
 <div className="hero-overlay">
 
@@ -100,8 +108,6 @@ style={{backgroundImage:`url(${slide.image})`}}
 </div>
 
 </div>
-
-))}
 
 <button className="hero-arrow hero-arrow-left" type="button" aria-label="Previous banner" onClick={() => goToSlide(-1)}>
 <FaChevronLeft />
@@ -118,6 +124,7 @@ key={slide.title}
 className={index===current ? "active" : ""}
 type="button"
 aria-label={`Show ${slide.title}`}
+aria-pressed={index===current}
 onClick={()=>setCurrent(index)}
 />
 ))}

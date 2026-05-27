@@ -14,8 +14,6 @@
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  background-position: center;
-  background-size: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -29,6 +27,14 @@
 
 .slide.active {
   opacity: 1;
+}
+
+.slide-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-overlay {

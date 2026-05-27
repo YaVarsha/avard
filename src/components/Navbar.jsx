@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { FaBars, FaTimes } from "react-icons/fa"
-import logo from "../assets/images/avard-logo-1.png"
 
 const links = [
   { label: "Home", to: "/" },
@@ -22,7 +21,7 @@ function Navbar() {
       <nav className="navbar" aria-label="Primary navigation">
         <div className="container nav-inner">
           <Link className="navbar-brand" to="/" onClick={closeMenu}>
-            <img src={logo} alt="AVARD logo" className="logo" />
+            <img src="/favicon.png" alt="AVARD logo" className="logo" width="68" height="58" />
             <span className="brand-text">
               <strong>AVARD</strong>
               <small>Rural Development</small>
