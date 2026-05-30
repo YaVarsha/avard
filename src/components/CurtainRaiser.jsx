@@ -50,7 +50,7 @@ function CurtainRaiser() {
   autoplay: true,
   autoplaySpeed: 3200,
   pauseOnHover: true,
-  arrows: true,
+  arrows: false,
 
   responsive: [
     {
