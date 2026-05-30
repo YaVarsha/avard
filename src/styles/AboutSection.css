@@ -73,7 +73,7 @@
 /* CARD */
 
 .goal-card {
-  min-height: 272px;
+  /* min-height: 272px; */
   padding: 18px 28px 28px;
   border: 0;
   border-radius: 10px;
@@ -140,6 +140,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 26px;
+  text-align: center;
 }
 
 .about-proof-grid div {

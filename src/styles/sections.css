@@ -160,6 +160,7 @@
   padding: 30px 28px;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  text-align: center;
 }
 
 .community-program-card::before {
@@ -192,7 +193,7 @@
   height: 56px;
   display: grid;
   place-items: center;
-  margin-bottom: 22px;
+  margin: 0 auto 22px;
   border-radius: 12px;
   background: #eaf5ee;
   color: var(--green);

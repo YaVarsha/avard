@@ -179,7 +179,15 @@
   }
 
   .slider-wrapper {
-    width: calc(100% - 40px);
+    width: min(100% - 40px, 390px);
+  }
+
+  .curtain-raiser-wrapper .slick-list {
+    margin: 0;
+  }
+
+  .card-curtain {
+    padding: 0;
   }
 
   .curtain-raiser-wrapper .slick-prev {

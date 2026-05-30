@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "../styles/CurtainRaiser.css";
 
@@ -14,15 +14,38 @@ import img8 from "../assets/images/CurtainRaiser-img/8-optimized.jpg";
 import img9 from "../assets/images/CurtainRaiser-img/9.jpg";
 import img10 from "../assets/images/CurtainRaiser-img/10.jpg";
 
+const getCurtainSlidesToShow = () => {
+  if (typeof window === "undefined") return 3;
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 992) return 2;
+  return 3;
+};
+
+function useCurtainSlides() {
+  const [slidesToShow, setSlidesToShow] = useState(getCurtainSlidesToShow);
+
+  useEffect(() => {
+    const handleResize = () => setSlidesToShow(getCurtainSlidesToShow());
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return slidesToShow;
+}
+
 function CurtainRaiser() {
 
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+  const slidesToShow = useCurtainSlides();
 
   const settings = {
   dots: false,
   infinite: true,
   speed: 600,
-  slidesToShow: 3,
+  slidesToShow,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3200,
@@ -37,7 +60,7 @@ function CurtainRaiser() {
       }
     },
     {
-      breakpoint: 576,
+      breakpoint: 768,
       settings: {
         slidesToShow: 1
       }
@@ -58,7 +81,7 @@ function CurtainRaiser() {
 
         <div className="slider-wrapper" data-aos="fade-up">
 
-          <Slider {...settings}>
+          <Slider key={`curtain-slider-${slidesToShow}`} {...settings}>
             {images.map((img, index) => (
               <div className="card-curtain" key={index}>
                 <img src={img} alt={`AVARD rural development activity ${index + 1}`} loading="lazy" decoding="async" />

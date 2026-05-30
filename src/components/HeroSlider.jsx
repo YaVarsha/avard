@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 import banner1 from "../assets/images/banner-1-optimized.jpg"
 import banner2 from "../assets/images/banner-2-optimized.jpg"
@@ -62,10 +61,6 @@ function HeroSlider() {
 const [current,setCurrent] = useState(0)
 const slide = slides[current]
 
-const goToSlide = (direction) => {
-setCurrent((prev)=>(prev + direction + slides.length)%slides.length)
-}
-
 useEffect(()=>{
 
 const interval = setInterval(()=>{
@@ -108,14 +103,6 @@ decoding={current === 0 ? "sync" : "async"}
 </div>
 
 </div>
-
-<button className="hero-arrow hero-arrow-left" type="button" aria-label="Previous banner" onClick={() => goToSlide(-1)}>
-<FaChevronLeft />
-</button>
-
-<button className="hero-arrow hero-arrow-right" type="button" aria-label="Next banner" onClick={() => goToSlide(1)}>
-<FaChevronRight />
-</button>
 
 <div className="hero-dots" aria-label="Banner navigation">
 {slides.map((slide,index)=>(
