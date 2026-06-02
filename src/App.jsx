@@ -12,6 +12,8 @@ const ProjectsPage = lazy(() => import("./pages/ProjectsPage"))
 const Donate = lazy(() => import("./pages/Donate"))
 const Contact = lazy(() => import("./pages/Contact"))
 const NewsletterPage = lazy(() => import("./pages/NewsletterPage"))
+const MembershipForm = lazy(() => import("./pages/MembershipForm"))
+const MembersPage = lazy(() => import("./pages/MembersPage"))
 const AdminLogin = lazy(() => import("./pages/AdminLogin"))
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"))
 
@@ -51,6 +53,8 @@ function App() {
             <Route path="/donate" element={<Donate />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/newsletter" element={<NewsletterPage />} />
+            <Route path="/membership" element={<MembershipForm />} />
+            <Route path="/members" element={<MembersPage />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>

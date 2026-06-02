@@ -60,9 +60,11 @@ function Footer() {
         <div className="footer-column footer-contact-column">
           <h3>Contact</h3>
           <ul className="footer-contact">
-            <li><FaMapMarkerAlt /> New Delhi, India</li>
-            <li><FaPhoneAlt /> +91 98765 43210</li>
-            <li><FaEnvelope /> support@avard.org</li>
+            <li><FaMapMarkerAlt /> {siteIdentity.address}</li>
+            <li><FaPhoneAlt /> {siteIdentity.phone}</li>
+            <li><FaPhoneAlt /> {siteIdentity.primaryContact}</li>
+            <li><FaPhoneAlt /> {siteIdentity.secondaryContact}</li>
+            <li><FaEnvelope /> {siteIdentity.email}</li>
             <li><FaShieldAlt /> Charity ID: {siteIdentity.charityId}</li>
           </ul>
           <Link className="footer-donate" to="/donate">Make a Donation</Link>

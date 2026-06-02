@@ -8,6 +8,8 @@ const links = [
   { label: "Programs", to: "/programs" },
   { label: "Projects", to: "/projects" },
   { label: "Newsletter", to: "/newsletter" },
+  { label: "Membership Form", to: "/membership" },
+  { label: "Members", to: "/members" },
   { label: "Contact", to: "/contact" },
 ]
 

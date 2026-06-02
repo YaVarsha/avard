@@ -13,7 +13,8 @@ function PledgeModal({ onClose }) {
         <span>Demo pledge recorded</span>
         <h2 id="pledge-modal-title">Thank you.</h2>
         <p>
-          Your pledge has been recorded for demo mode. Add
+          Your pledge has been recorded for demo mode, and a thank-you email
+          has been recorded for the donor. Add
           <strong> VITE_RAZORPAY_KEY_ID</strong> to enable live online payments.
         </p>
         <button className="pledge-modal-action" type="button" onClick={onClose}>

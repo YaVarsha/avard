@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Helmet } from "react-helmet-async"
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
+import { siteIdentity } from "../data/siteIdentity"
 
 function Contact() {
   const [message, setMessage] = useState("")
@@ -33,9 +34,11 @@ function Contact() {
         <div className="container contact-layout">
           <div className="contact-info">
             <h2>AVARD Office</h2>
-            <p><FaMapMarkerAlt /> New Delhi, India</p>
-            <p><FaPhoneAlt /> +91 98765 43210</p>
-            <p><FaEnvelope /> support@avard.org</p>
+            <p><FaMapMarkerAlt /> {siteIdentity.address}</p>
+            <p><FaPhoneAlt /> {siteIdentity.phone}</p>
+            <p><FaPhoneAlt /> {siteIdentity.primaryContact}</p>
+            <p><FaPhoneAlt /> {siteIdentity.secondaryContact}</p>
+            <p><FaEnvelope /> {siteIdentity.email}</p>
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>

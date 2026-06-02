@@ -23,6 +23,10 @@
     display: flex;
   }
 
+  .program-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .nav-menu a {
     display: block;
     padding: 13px 12px;
@@ -34,17 +38,19 @@
   }
 
   .testimonial-grid,
-  .program-grid,
   .project-grid,
   .values-grid,
   .community-program-grid,
+  .people-highlight-grid,
   .awards-grid,
   .partners-layout,
   .partners-grid,
   .admin-stat-grid,
   .admin-panel-grid,
+  .members-grid,
   .donation-cta-grid,
   .newsletter-panel,
+  .membership-layout,
   .newsletter-page-layout,
   .contact-layout,
   .donate-layout,
@@ -57,6 +63,10 @@
   }
 
   .newsletter-page-form {
+    position: static;
+  }
+
+  .membership-info {
     position: static;
   }
 
@@ -126,24 +136,52 @@
   .testimonials-section,
   .programs-section,
   .projects-section,
+  .members-section,
   .contact-section,
   .donate-page-section,
   .values-section,
   .community-programs-section,
+  .people-highlight-section,
   .awards-section,
   .partners-section,
   .rd-week-section,
   .donation-cta-section,
+  .membership-section,
   .newsletter-page-section {
     padding: 64px 0;
   }
 
   .amount-grid,
   .two-column-fields,
+  .program-grid,
   .newsletter-form,
   .admin-sidebar nav,
   .admin-table div {
     grid-template-columns: 1fr;
+  }
+
+  .membership-admin-card-header,
+  .membership-admin-card dl {
+    grid-template-columns: 1fr;
+  }
+
+  .membership-admin-card-header {
+    flex-direction: column;
+  }
+
+  .people-highlight-card {
+    grid-template-columns: 1fr;
+  }
+
+  .people-highlight-media,
+  .people-highlight-card img,
+  .people-highlight-avatar {
+    height: 300px;
+    min-height: 0;
+  }
+
+  .people-highlight-content {
+    padding: 28px;
   }
 
   .admin-topbar {
@@ -157,11 +195,6 @@
 
   .donation-qr-card.compact {
     width: 100%;
-  }
-
-  .rd-flip-card,
-  .rd-flip-inner {
-    min-height: 360px;
   }
 
   .rd-week-heading {
@@ -178,48 +211,36 @@
     line-height: 1.65;
   }
 
-  .rd-week-gallery-shell {
-    max-width: 360px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0;
+  .rd-timeline-layout {
+    grid-template-columns: 1fr;
   }
 
-  .rd-week-slider .slick-list {
-    margin: 0;
-    padding-bottom: 24px;
+  .rd-timeline-panel {
+    padding: 22px;
   }
 
-  .rd-week-slide {
-    padding: 0 8px;
+  .rd-timeline-panel-head {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
-  .rd-week-slider .rd-gallery-arrow {
-    width: 40px;
-    height: 40px;
+  .rd-timeline-list {
+    max-height: 562px;
   }
 
-  .rd-week-slider .rd-gallery-arrow-left {
-    left: -6px;
+  .rd-timeline-item {
+    grid-template-columns: 78px 1fr;
+    gap: 14px;
   }
 
-  .rd-week-slider .rd-gallery-arrow-right {
-    right: -6px;
+  .rd-timeline-media {
+    width: 78px;
+    height: 78px;
   }
 
-  .rd-front-caption {
-    padding: 18px;
-  }
-
-  .rd-front-caption h3,
-  .rd-flip-back h3 {
-    font-size: 1.15rem;
+  .rd-timeline-content h4 {
+    font-size: 1rem;
     overflow-wrap: anywhere;
-  }
-
-  .rd-front-caption span,
-  .rd-flip-back p {
-    font-size: var(--text-sm);
   }
 
   .footer-bottom .container {
@@ -263,37 +284,34 @@
     font-size: 0.8125rem;
   }
 
-  .rd-week-gallery-shell {
-    max-width: 300px;
+  .rd-timeline-panel {
+    padding: 18px;
   }
 
-  .rd-flip-card,
-  .rd-flip-inner {
-    min-height: 330px;
+  .rd-timeline-list {
+    max-height: 1180px;
+    padding-left: 18px;
   }
 
-  .rd-week-slide {
-    padding: 0 6px;
+  .rd-timeline-list::before {
+    left: 5px;
   }
 
-  .rd-front-caption {
-    padding: 15px;
+  .rd-timeline-item {
+    grid-template-columns: 1fr;
+    padding: 14px;
   }
 
-  .rd-flip-back {
-    padding: 22px;
+  .rd-timeline-item::before {
+    left: -24px;
   }
 
-  .rd-week-slider .rd-gallery-arrow {
-    width: 36px;
-    height: 36px;
+  .rd-timeline-media {
+    width: 100%;
+    height: 210px;
   }
 
-  .rd-week-slider .rd-gallery-arrow-left {
-    left: -2px;
-  }
-
-  .rd-week-slider .rd-gallery-arrow-right {
-    right: -2px;
+  .rd-timeline-content span {
+    white-space: normal;
   }
 }

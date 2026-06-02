@@ -1,168 +1,98 @@
-import Slider from "react-slick"
-import { useEffect, useState } from "react"
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import jayprakash from "../assets/images/avard-website/photos/shri-jaypraksh-narayan-optimized.jpg"
 import kamladevi from "../assets/images/avard-website/photos/smt-kamladevi-chattopadhyay1-1-optimized.jpg"
 import acSen from "../assets/images/avard-website/photos/shri-a-c-sen-optimized.jpg"
 import dharampal from "../assets/images/avard-website/photos/shr-dharampal-optimized.jpg"
 import anna from "../assets/images/avard-website/photos/shri-anna-sahasrbudhe.jpg"
 import lcJain from "../assets/images/avard-website/photos/shri-l-c-jain.jpg"
+import drBMishra from "../assets/images/avard-website/photos/dr-b-mishra.jpg"
+import durgaPrasadSingh from "../assets/images/avard-website/photos/durga-prasad-singh.jpg"
 
-const people = [
-  {
-    image: jayprakash,
-    name: "Shri Jayaprakash Narayan",
-    role: "People's movement leader",
-    detail:
-      "Remembered for inspiring voluntary action, community participation, and democratic grassroots development.",
-  },
-  {
-    image: kamladevi,
-    name: "Smt. Kamaladevi Chattopadhyay",
-    role: "Social reformer",
-    detail:
-      "Associated with craft, cooperative action, women leadership, and dignified livelihoods for rural communities.",
-  },
-  {
-    image: acSen,
-    name: "Shri A. C. Sen",
-    role: "Development thinker",
-    detail:
-      "Contributed to the spirit of organised voluntary work and rural development institution building.",
-  },
-  {
-    image: dharampal,
-    name: "Shri Dharampal",
-    role: "Gandhian thinker",
-    detail:
-      "Known for work on indigenous knowledge, community institutions, and decentralised social development.",
-  },
-  {
-    image: anna,
-    name: "Shri Anna Sahasrabudhe",
-    role: "Constructive worker",
-    detail:
-      "Part of the wider tradition of constructive rural work, social responsibility, and community self-reliance.",
-  },
-  {
-    image: lcJain,
-    name: "Shri L. C. Jain",
-    role: "Rural development advocate",
-    detail:
-      "Associated with cooperative thinking, livelihood development, and strengthening people-centred institutions.",
-  },
+const presidents = [
+  { image: kamladevi, name: "Kamaladevi Chattopadhyay", tenure: "December 1958 - April 1960" },
+  { image: jayprakash, name: "Jayaprakash Narayan", tenure: "April 1960 - 1979" },
+  { name: "K. S. Radhakrishna", tenure: "1979 - 1987" },
+  { image: acSen, name: "A. C. Sen", tenure: "1987 - 1994" },
+  { name: "P. M. Tripathi", tenure: "1995 - 2020" },
+  { image: drBMishra, name: "Dr. B. Mishra", tenure: "2021 - Present" },
 ]
 
-function GalleryArrow({ className, onClick, direction }) {
+const generalSecretaries = [
+  { image: dharampal, name: "Dharampal", tenure: "1958 - 1964" },
+  { image: lcJain, name: "L. C. Jain", tenure: "1964 - 1966 & 1982 - 1983" },
+  { image: anna, name: "Annasaheb Sahasrabudhe", tenure: "1966 - 1970" },
+  { image: acSen, name: "A. C. Sen", tenure: "1970 - 1980" },
+  { name: "P. M. Tripathi", tenure: "1987 - 1994" },
+  { name: "Sanjoy Ghose", tenure: "1994 - 1997" },
+  { name: "Ajay S. Mehta", tenure: "1999 - 2001" },
+  { image: drBMishra, name: "Dr. B. Mishra", tenure: "2002 - 2006" },
+  { name: "R. P. Agrawal", tenure: "2007 - 2011" },
+  { name: "Ram Kumar", tenure: "2012 - 2013" },
+  { image: drBMishra, name: "Dr. B. Mishra", tenure: "2014 - 2016" },
+  { name: "Surendra Kumar", tenure: "2017 - 2020" },
+  { name: "Dr. Pyare Lal", tenure: "2021 - 2024" },
+  { image: durgaPrasadSingh, name: "Durga Prasad Singh", tenure: "2024 - Present" },
+]
+
+function getInitials(name) {
+  return name
+    .replaceAll(".", "")
+    .split(" ")
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase()
+}
+
+function LeadershipTrack({ title, eyebrow, leaders }) {
   return (
-    <button className={`${className} rd-gallery-arrow rd-gallery-arrow-${direction}`} type="button" aria-label={`${direction === "left" ? "Previous" : "Next"} Rural Development Week card`} onClick={onClick}>
-      {direction === "left" ? <FaChevronLeft /> : <FaChevronRight />}
-    </button>
+    <article className="rd-timeline-panel" data-aos="fade-up">
+      <div className="rd-timeline-panel-head">
+        <span>{eyebrow}</span>
+        <h3>{title}</h3>
+      </div>
+
+      <ol className="rd-timeline-list">
+        {leaders.map((leader) => (
+          <li className="rd-timeline-item" key={`${title}-${leader.name}-${leader.tenure}`}>
+            <div className="rd-timeline-media">
+              {leader.image ? (
+                <img src={leader.image} alt={leader.name} loading="lazy" decoding="async" />
+              ) : (
+                <div className="rd-leader-avatar compact" aria-label={leader.name}>
+                  {getInitials(leader.name)}
+                </div>
+              )}
+            </div>
+
+            <div className="rd-timeline-content">
+              <span>{leader.tenure}</span>
+              <h4>{leader.name}</h4>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </article>
   )
 }
 
-function useViewportSlides() {
-  const getSlidesToShow = () => {
-    if (typeof window === "undefined") {
-      return 3
-    }
-
-    if (window.innerWidth <= 680) {
-      return 1
-    }
-
-    if (window.innerWidth <= 1100) {
-      return 2
-    }
-
-    return 3
-  }
-
-  const [slidesToShow, setSlidesToShow] = useState(getSlidesToShow)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSlidesToShow(getSlidesToShow())
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
-
-  return slidesToShow
-}
-
 function RuralDevelopmentWeek() {
-  const slidesToShow = useViewportSlides()
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    slidesToShow,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3200,
-    pauseOnHover: true,
-    arrows: slidesToShow > 1,
-    prevArrow: <GalleryArrow direction="left" />,
-    nextArrow: <GalleryArrow direction="right" />,
-    responsive: [
-      {
-        breakpoint: 1100,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 680,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  }
-
   return (
     <section className="rd-week-section">
       <div className="container">
         <div className="section-heading rd-week-heading">
-          <span>Rural Development Week 2025</span>
-          <h2>Experience the transformation of Rural Development Week 2025</h2>
+          <span>AVARD Leadership Timeline</span>
+          <h2>Presidents and General Secretaries of AVARD</h2>
           <p>
-            Hover over each old-site AVARD image to reveal the person details
-            and the values that continue to guide rural development work.
+            A leadership record drawn from AVARD's official membership and
+            organisation documents, covering the people who guided the
+            association from 1958 to the present.
           </p>
         </div>
 
-        <div className="rd-week-gallery-shell" aria-label="Rural Development Week people gallery">
-          <Slider className="rd-week-slider" key={`rd-week-${slidesToShow}`} {...settings}>
-            {people.map((person, index) => (
-              <div className="rd-week-slide" key={person.name}>
-                <article className="rd-flip-card" data-aos="fade-up" data-aos-delay={index * 70} tabIndex="0">
-                  <div className="rd-flip-inner">
-                    <div className="rd-flip-front">
-                      <img src={person.image} alt={person.name} loading="lazy" decoding="async" />
-                      <div className="rd-front-caption">
-                        <h3>{person.name}</h3>
-                        <span>{person.role}</span>
-                      </div>
-                    </div>
-
-                    <div className="rd-flip-back">
-                      <span>{person.role}</span>
-                      <h3>{person.name}</h3>
-                      <p>{person.detail}</p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            ))}
-          </Slider>
+        <div className="rd-timeline-layout" aria-label="AVARD yearwise leadership timeline">
+          <LeadershipTrack title="Presidents" eyebrow="1958 - Present" leaders={presidents} />
+          <LeadershipTrack title="General Secretaries" eyebrow="1958 - Present" leaders={generalSecretaries} />
         </div>
       </div>
     </section>

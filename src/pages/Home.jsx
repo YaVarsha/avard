@@ -14,6 +14,7 @@ import CommunityPrograms from "../components/CommunityPrograms"
 import RuralDevelopmentWeek from "../components/RuralDevelopmentWeek"
 import AwardsRecognition from "../components/AwardsRecognition"
 import PartnersSection from "../components/PartnersSection"
+import PeopleHighlights from "../components/PeopleHighlights"
 
 function Home() {
   return (
@@ -46,6 +47,8 @@ function Home() {
       {/* <Programs /> */}
 
       <AboutSection/>
+
+      <PeopleHighlights />
 
       <CommunityPrograms />
 

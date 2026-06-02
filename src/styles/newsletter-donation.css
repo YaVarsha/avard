@@ -25,6 +25,9 @@
 .newsletter-form button,
 .contact-form input,
 .contact-form textarea,
+.membership-form input,
+.membership-form select,
+.membership-form textarea,
 .donation-form input,
 .donation-form textarea {
   min-height: 48px;
@@ -34,6 +37,9 @@
 .newsletter-form input,
 .contact-form input,
 .contact-form textarea,
+.membership-form input,
+.membership-form select,
+.membership-form textarea,
 .donation-form input,
 .donation-form textarea {
   width: 100%;
@@ -230,6 +236,27 @@
 .program-card,
 .value-card {
   padding: 30px;
+}
+
+.program-card {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.program-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green), var(--orange));
+}
+
+.program-card:hover {
+  border-color: #f5c7b1;
+  box-shadow: 0 22px 48px rgba(23, 33, 43, 0.12);
+  transform: translateY(-6px);
 }
 
 .program-icon {
@@ -511,6 +538,193 @@
 .newsletter-page-section {
   padding: 90px 0;
   background: linear-gradient(135deg, #ffffff 0%, var(--soft) 52%, var(--cream) 100%);
+}
+
+.membership-section {
+  padding: 90px 0;
+  background: linear-gradient(135deg, #ffffff 0%, var(--soft) 50%, var(--cream) 100%);
+}
+
+.membership-layout {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.membership-info,
+.membership-form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.membership-info {
+  position: sticky;
+  top: 110px;
+  padding: 32px;
+}
+
+.membership-info > span,
+.membership-form-title span {
+  color: var(--orange);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-heavy);
+  text-transform: uppercase;
+}
+
+.membership-info h2,
+.membership-form-title h2 {
+  margin: 8px 0 14px;
+  font-size: var(--heading-sm);
+}
+
+.membership-info p {
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.membership-info ul {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.membership-info li {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  color: #31404d;
+}
+
+.membership-info svg {
+  flex: 0 0 auto;
+  margin-top: 5px;
+  color: var(--green);
+}
+
+.membership-form {
+  display: grid;
+  gap: 18px;
+  padding: 32px;
+}
+
+.membership-form-title {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.membership-form-title > svg {
+  width: 58px;
+  height: 58px;
+  padding: 15px;
+  color: #fff;
+  background: var(--green);
+  border-radius: 8px;
+}
+
+.membership-form-title h2 {
+  margin-bottom: 0;
+}
+
+.membership-form label {
+  display: grid;
+  gap: 8px;
+  color: #31404d;
+  font-weight: var(--weight-bold);
+}
+
+.membership-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.membership-checklist {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f7fbf8;
+}
+
+.membership-checklist legend {
+  padding: 0 8px;
+  color: var(--green-dark);
+  font-weight: var(--weight-heavy);
+}
+
+.membership-checklist label,
+.membership-declaration {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: #31404d;
+  font-weight: var(--weight-medium);
+  line-height: 1.55;
+}
+
+.membership-checklist input,
+.membership-declaration input {
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  margin-top: 3px;
+  accent-color: var(--green);
+  flex: 0 0 auto;
+}
+
+.membership-declaration {
+  padding: 16px;
+  border: 1px solid #cfe3d8;
+  border-radius: 8px;
+  background: #eef8f2;
+}
+
+.membership-rules {
+  border: 1px solid #f0d5c7;
+  border-radius: 8px;
+  background: #fffaf6;
+  overflow: hidden;
+}
+
+.membership-rules summary {
+  padding: 16px 18px;
+  color: var(--green-dark);
+  font-weight: var(--weight-heavy);
+  cursor: pointer;
+}
+
+.membership-rules div {
+  display: grid;
+  gap: 12px;
+  padding: 0 18px 18px;
+}
+
+.membership-rules h3,
+.membership-rules h4,
+.membership-rules p {
+  margin: 0;
+}
+
+.membership-rules h3 {
+  font-size: var(--text-lg);
+}
+
+.membership-rules h4 {
+  color: var(--orange);
+  font-size: var(--text-base);
+}
+
+.membership-rules p {
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .newsletter-page-layout {

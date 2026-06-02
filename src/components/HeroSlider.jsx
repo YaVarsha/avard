@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
-import banner1 from "../assets/images/banner-1-optimized.jpg"
+import banner1 from "../assets/images/hero-kartavya-path-tubewell.jpg"
 import banner2 from "../assets/images/banner-2-optimized.jpg"
 import banner3 from "../assets/images/banner-3-optimized.jpg"
 import banner4 from "../assets/images/banner-4-optimized.jpg"
-import banner5 from "../assets/images/banner-5-optimized.jpg"
+import educationBanner from "../assets/images/hero-gyan-path-education.jpg"
+import animalFarmingBanner from "../assets/images/hero-animal-farming.jpg"
+import sportsBanner from "../assets/images/hero-rural-sports.jpg"
 
 const slides = [
 
@@ -46,12 +48,30 @@ link: "/programs"
 },
 
 {
-image: banner5,
+image: educationBanner,
 title: "Education for Rural Children",
-text: "Helping children in villages access better education opportunities.",
+text: "Guiding children toward learning, confidence, and opportunity through Gyan Path.",
 button: "Support Education"
 ,
 link: "/donate"
+},
+
+{
+image: animalFarmingBanner,
+title: "Animal Farming Society",
+text: "Supporting rural families with livestock-based livelihood, training, and community enterprise.",
+button: "View Programs"
+,
+link: "/programs"
+},
+
+{
+image: sportsBanner,
+title: "Sports for Rural Youth",
+text: "Encouraging teamwork, health, discipline, and confidence among children and young people.",
+button: "Join Activities"
+,
+link: "/membership"
 }
 
 ]
@@ -67,7 +87,7 @@ const interval = setInterval(()=>{
 
 setCurrent((prev)=>(prev+1)%slides.length)
 
-},5000)
+},8000)
 
 return ()=>clearInterval(interval)
 

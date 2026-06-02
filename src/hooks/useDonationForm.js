@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react"
 import { donationAmounts } from "../data/donationOptions"
+import { logMembershipEmail } from "../data/membershipStore"
 
 const initialDonor = {
   name: "",
@@ -22,6 +23,15 @@ const loadRazorpay = () =>
     script.onerror = () => resolve(false)
     document.body.appendChild(script)
   })
+
+const sendDonationThankYouEmail = (donor, amount) => {
+  logMembershipEmail({
+    to: donor.email,
+    type: "Donation Thank You",
+    subject: "Thank you for supporting AVARD",
+    body: `Dear ${donor.name}, thank you for your generous contribution of Rs. ${amount.toLocaleString("en-IN")} to AVARD. Your support helps strengthen rural development, education, women leadership, livelihoods, and community-led action.`,
+  })
+}
 
 export function useDonationForm() {
   const [selectedAmount, setSelectedAmount] = useState(donationAmounts[1])
@@ -85,7 +95,8 @@ export function useDonationForm() {
           color: "#1f7a53",
         },
         handler: () => {
-          setStatus("Thank you. Your donation was recorded successfully.")
+          sendDonationThankYouEmail(donor, amount)
+          setStatus("Thank you. Your donation was recorded successfully. A thank-you email has been sent in demo mode.")
         },
       })
 
@@ -93,6 +104,7 @@ export function useDonationForm() {
       return
     }
 
+    sendDonationThankYouEmail(donor, amount)
     setPledgePopup(true)
   }
 

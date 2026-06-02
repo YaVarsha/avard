@@ -236,3 +236,117 @@
   grid-column: 1 / -1;
 }
 
+.membership-admin-panel,
+.email-log-panel {
+  grid-column: 1 / -1;
+}
+
+.membership-admin-list,
+.email-log-list {
+  display: grid;
+  gap: 14px;
+}
+
+.membership-admin-card,
+.email-log-list article {
+  padding: 18px;
+  background: #f7fbf8;
+  border: 1px solid #e2ece6;
+  border-radius: 8px;
+}
+
+.membership-admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.membership-admin-card-header span,
+.email-log-list article span {
+  color: var(--orange);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-heavy);
+  text-transform: uppercase;
+}
+
+.membership-admin-card h3,
+.email-log-list h3 {
+  margin: 4px 0 6px;
+  font-size: var(--text-lg);
+}
+
+.membership-admin-card p,
+.email-log-list p,
+.admin-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.membership-status {
+  flex: 0 0 auto;
+  padding: 8px 11px;
+  border-radius: 999px;
+  color: var(--green-dark);
+  background: #eaf5ee;
+  font-size: var(--text-sm);
+}
+
+.status-rejected {
+  color: #8a2a12;
+  background: #fff1eb;
+}
+
+.status-active-member {
+  color: #fff;
+  background: var(--green);
+}
+
+.membership-admin-card dl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.membership-admin-card dl div {
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.membership-admin-card dt {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+.membership-admin-card dd {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-weight: var(--weight-bold);
+}
+
+.membership-admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.admin-panel .membership-admin-actions button {
+  min-height: 42px;
+}
+
+.admin-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+  transform: none;
+}
+
+.email-log-list article {
+  display: grid;
+  gap: 6px;
+}
+

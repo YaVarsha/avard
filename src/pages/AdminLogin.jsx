@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Helmet } from "react-helmet-async"
 import { useNavigate } from "react-router-dom"
 import { FaLock, FaUserShield } from "react-icons/fa"
+import { siteIdentity } from "../data/siteIdentity"
 
 function AdminLogin() {
   const navigate = useNavigate()
@@ -40,7 +41,7 @@ function AdminLogin() {
           <form onSubmit={submitLogin}>
             <label>
               Admin email
-              <input name="email" type="email" value={form.email} onChange={updateForm} placeholder="admin@avard.org" />
+              <input name="email" type="email" value={form.email} onChange={updateForm} placeholder={siteIdentity.email} />
             </label>
             <label>
               Password
