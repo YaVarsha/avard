@@ -536,7 +536,7 @@
 
 .rd-timeline-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
   gap: 30px;
   align-items: start;
 }
@@ -590,6 +590,7 @@
   margin: 0;
   padding: 0 10px 0 24px;
   list-style: none;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-color: rgba(242, 107, 47, 0.72) rgba(20, 83, 58, 0.08);
@@ -626,6 +627,7 @@
   grid-template-columns: 92px 1fr;
   gap: 18px;
   align-items: center;
+  min-width: 0;
   padding: 14px;
   background: linear-gradient(135deg, #fff, #fbfffc);
   border: 1px solid rgba(20, 83, 58, 0.12);
@@ -652,6 +654,10 @@
   border-color: rgba(242, 107, 47, 0.38);
   box-shadow: 0 22px 48px rgba(23, 33, 43, 0.12);
   transform: translateX(5px);
+}
+
+.rd-timeline-content {
+  min-width: 0;
 }
 
 .rd-timeline-media {
