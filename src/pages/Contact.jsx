@@ -36,8 +36,6 @@ function Contact() {
             <h2>AVARD Office</h2>
             <p><FaMapMarkerAlt /> {siteIdentity.address}</p>
             <p><FaPhoneAlt /> {siteIdentity.phone}</p>
-            <p><FaPhoneAlt /> {siteIdentity.primaryContact}</p>
-            <p><FaPhoneAlt /> {siteIdentity.secondaryContact}</p>
             <p><FaEnvelope /> {siteIdentity.email}</p>
           </div>
 

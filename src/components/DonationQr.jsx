@@ -12,7 +12,6 @@ function DonationQr({ amount = 1000, compact = false }) {
       <p>
         UPI ID: <strong>{siteIdentity.upiId}</strong>
       </p>
-      <small>Charity ID: {siteIdentity.charityId}</small>
     </div>
   )
 }

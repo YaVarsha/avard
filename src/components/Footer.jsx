@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaShieldAlt, FaYoutube } from "react-icons/fa"
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa"
 import DonationQr from "./DonationQr"
 import { siteIdentity } from "../data/siteIdentity"
 import impactStrip from "../assets/images/footer-impact-strip.svg"
@@ -24,12 +24,6 @@ function Footer() {
             community-led change through rural livelihoods, education, health,
             women leadership, and sustainable agriculture.
           </p>
-          <div className="social-links" aria-label="Social media links">
-            <a href="https://www.facebook.com/" aria-label="Facebook"><FaFacebookF /></a>
-            <a href="https://www.instagram.com/" aria-label="Instagram"><FaInstagram /></a>
-            <a href="https://www.linkedin.com/" aria-label="LinkedIn"><FaLinkedinIn /></a>
-            <a href="https://www.youtube.com/" aria-label="YouTube"><FaYoutube /></a>
-          </div>
           <DonationQr compact />
         </div>
 
@@ -62,10 +56,7 @@ function Footer() {
           <ul className="footer-contact">
             <li><FaMapMarkerAlt /> {siteIdentity.address}</li>
             <li><FaPhoneAlt /> {siteIdentity.phone}</li>
-            <li><FaPhoneAlt /> {siteIdentity.primaryContact}</li>
-            <li><FaPhoneAlt /> {siteIdentity.secondaryContact}</li>
             <li><FaEnvelope /> {siteIdentity.email}</li>
-            <li><FaShieldAlt /> Charity ID: {siteIdentity.charityId}</li>
           </ul>
           <Link className="footer-donate" to="/donate">Make a Donation</Link>
         </div>
@@ -74,7 +65,6 @@ function Footer() {
       <div className="footer-bottom">
         <div className="container">
           <p>{copyrightText}</p>
-          <p>Charity ID: {siteIdentity.charityId}</p>
         </div>
       </div>
       <div className="footer-impact-strip" aria-hidden="true">

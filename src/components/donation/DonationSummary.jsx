@@ -1,4 +1,4 @@
-import { FaCheckCircle, FaCreditCard, FaShieldAlt, FaUniversity } from "react-icons/fa"
+import { FaCheckCircle, FaCreditCard, FaUniversity } from "react-icons/fa"
 import DonationQr from "../DonationQr"
 import { donationImpact } from "../../data/donationOptions"
 import { siteIdentity } from "../../data/siteIdentity"
@@ -23,19 +23,10 @@ function DonationSummary({ amount }) {
         <p><strong>Account Number:</strong> 000000000000</p>
         <p><strong>IFSC:</strong> XXXX0000000</p>
         <p><strong>UPI:</strong> {siteIdentity.upiId}</p>
-        <p><strong>Charity ID:</strong> {siteIdentity.charityId}</p>
         <small>Replace these sample details with the NGO's verified bank information before launch.</small>
       </div>
 
       <DonationQr amount={amount} />
-
-      <div className="payment-note">
-        <FaShieldAlt />
-        <p>
-          Donors can verify AVARD using Charity ID
-          <strong> {siteIdentity.charityId}</strong> before contributing.
-        </p>
-      </div>
 
       <div className="payment-note">
         <FaCreditCard />

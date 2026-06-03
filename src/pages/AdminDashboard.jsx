@@ -14,7 +14,6 @@ import {
 } from "../data/membershipStore"
 
 const defaultSettings = {
-  charityId: siteIdentity.charityId,
   upiId: siteIdentity.upiId,
   phone: siteIdentity.phone,
   email: siteIdentity.email,
@@ -149,7 +148,6 @@ function AdminDashboard() {
 
             <form className="admin-panel" id="trust-settings" onSubmit={saveSettings}>
               <h2>Donation and trust settings</h2>
-              <label>Charity ID<input name="charityId" value={settings.charityId} onChange={updateSetting} /></label>
               <label>UPI ID<input name="upiId" value={settings.upiId} onChange={updateSetting} /></label>
               <label>Contact phone<input name="phone" value={settings.phone} onChange={updateSetting} /></label>
               <label>Contact email<input name="email" value={settings.email} onChange={updateSetting} /></label>

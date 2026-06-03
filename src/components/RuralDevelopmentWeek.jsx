@@ -6,6 +6,10 @@ import anna from "../assets/images/avard-website/photos/shri-anna-sahasrbudhe.jp
 import lcJain from "../assets/images/avard-website/photos/shri-l-c-jain.jpg"
 import drBMishra from "../assets/images/avard-website/photos/dr-b-mishra.jpg"
 import durgaPrasadSingh from "../assets/images/avard-website/photos/durga-prasad-singh.jpg"
+import ajaySMehta from "../assets/images/avard-website/photos/ajay-s-mehta.jpg"
+import ramKumar from "../assets/images/avard-website/photos/ram-kumar.jpg"
+import surendraKumar from "../assets/images/avard-website/photos/surendra-kumar.jpg"
+import drPyareLal from "../assets/images/avard-website/photos/dr-pyare-lal.jpg"
 
 const presidents = [
   { image: kamladevi, name: "Kamaladevi Chattopadhyay", tenure: "December 1958 - April 1960" },
@@ -23,13 +27,13 @@ const generalSecretaries = [
   { image: acSen, name: "A. C. Sen", tenure: "1970 - 1980" },
   { name: "P. M. Tripathi", tenure: "1987 - 1994" },
   { name: "Sanjoy Ghose", tenure: "1994 - 1997" },
-  { name: "Ajay S. Mehta", tenure: "1999 - 2001" },
+  { image: ajaySMehta, name: "Ajay S. Mehta", tenure: "1999 - 2001" },
   { image: drBMishra, name: "Dr. B. Mishra", tenure: "2002 - 2006" },
   { name: "R. P. Agrawal", tenure: "2007 - 2011" },
-  { name: "Ram Kumar", tenure: "2012 - 2013" },
+  { image: ramKumar, name: "Ram Kumar", tenure: "2012 - 2013" },
   { image: drBMishra, name: "Dr. B. Mishra", tenure: "2014 - 2016" },
-  { name: "Surendra Kumar", tenure: "2017 - 2020" },
-  { name: "Dr. Pyare Lal", tenure: "2021 - 2024" },
+  { image: surendraKumar, name: "Surendra Kumar", tenure: "2017 - 2020" },
+  { image: drPyareLal, name: "Dr. Pyare Lal", tenure: "2021 - 2024" },
   { image: durgaPrasadSingh, name: "Durga Prasad Singh", tenure: "2024 - Present" },
 ]
 

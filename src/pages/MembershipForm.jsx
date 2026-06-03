@@ -110,7 +110,7 @@ function MembershipForm() {
               </label>
               <label>
                 Telephone / Mobile
-                <input name="phone" type="tel" placeholder={siteIdentity.secondaryContact} required />
+                <input name="phone" type="tel" placeholder="Applicant contact number" required />
               </label>
             </div>
 
