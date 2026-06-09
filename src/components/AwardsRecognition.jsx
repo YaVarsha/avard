@@ -19,7 +19,7 @@ const awards = [
   {
     icon: <FaShieldAlt />,
     title: "Donor Confidence",
-    text: "Public trust details, charity identification, and clear donation pathways for supporters.",
+    text: "Public trust details, transparent communication, and clear donation pathways for supporters.",
   },
 ]
 

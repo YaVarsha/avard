@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react"
 import { donationAmounts } from "../data/donationOptions"
+import { submitDonationToBackend } from "../data/donationStore"
 import { logMembershipEmail } from "../data/membershipStore"
 
 const initialDonor = {
@@ -32,6 +33,17 @@ const sendDonationThankYouEmail = (donor, amount) => {
     body: `Dear ${donor.name}, thank you for your generous contribution of Rs. ${amount.toLocaleString("en-IN")} to AVARD. Your support helps strengthen rural development, education, women leadership, livelihoods, and community-led action.`,
   })
 }
+
+const buildDonationPledge = (donor, amount, paymentMode = "Bank Transfer") => ({
+  donorName: donor.name.trim(),
+  email: donor.email.trim(),
+  phone: donor.phone.trim(),
+  pan: donor.pan.trim(),
+  message: donor.message.trim(),
+  amount,
+  paymentMode,
+  program: "General rural development support",
+})
 
 export function useDonationForm() {
   const [selectedAmount, setSelectedAmount] = useState(donationAmounts[1])
@@ -94,7 +106,13 @@ export function useDonationForm() {
         theme: {
           color: "#1f7a53",
         },
-        handler: () => {
+        handler: async (response) => {
+          const pledge = buildDonationPledge(donor, amount, "Razorpay")
+          await submitDonationToBackend({
+            ...pledge,
+            razorpayPaymentId: response.razorpay_payment_id,
+            status: "Paid",
+          })
           sendDonationThankYouEmail(donor, amount)
           setStatus("Thank you. Your donation was recorded successfully. A thank-you email has been sent in demo mode.")
         },
@@ -104,8 +122,13 @@ export function useDonationForm() {
       return
     }
 
-    sendDonationThankYouEmail(donor, amount)
-    setPledgePopup(true)
+    try {
+      await submitDonationToBackend(buildDonationPledge(donor, amount))
+      sendDonationThankYouEmail(donor, amount)
+      setPledgePopup(true)
+    } catch {
+      setStatus("We could not connect to the donation backend. Please try again or use the bank transfer details.")
+    }
   }
 
   return {

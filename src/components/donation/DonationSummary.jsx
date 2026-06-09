@@ -4,6 +4,8 @@ import { donationImpact } from "../../data/donationOptions"
 import { siteIdentity } from "../../data/siteIdentity"
 
 function DonationSummary({ amount }) {
+  const { bank } = siteIdentity
+
   return (
     <aside className="donation-summary">
       <div className="summary-card">
@@ -19,11 +21,13 @@ function DonationSummary({ amount }) {
 
       <div className="bank-card">
         <h3><FaUniversity /> Bank Transfer</h3>
-        <p><strong>Account Name:</strong> AVARD</p>
-        <p><strong>Account Number:</strong> 000000000000</p>
-        <p><strong>IFSC:</strong> XXXX0000000</p>
-        <p><strong>UPI:</strong> {siteIdentity.upiId}</p>
-        <small>Replace these sample details with the NGO's verified bank information before launch.</small>
+        <p><strong>Account Holder:</strong> {bank.accountHolder}</p>
+        <p><strong>Account Number:</strong> {bank.accountNumber}</p>
+        <p><strong>Bank:</strong> {bank.bankName}</p>
+        <p><strong>IFSC:</strong> {bank.ifsc}</p>
+        <p><strong>Branch:</strong> {bank.branch}</p>
+        <p><strong>Account Type:</strong> {bank.accountType}</p>
+        <small>After transfer, submit donor details so the AVARD team can verify payment and follow up with a receipt.</small>
       </div>
 
       <DonationQr amount={amount} />

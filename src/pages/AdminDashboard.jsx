@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Helmet } from "react-helmet-async"
 import { Link, useNavigate } from "react-router-dom"
 import { FaBullhorn, FaChartLine, FaCheckCircle, FaDonate, FaEnvelopeOpenText, FaFileInvoice, FaIdBadge, FaSignOutAlt, FaTimesCircle, FaUsers } from "react-icons/fa"
+import { fetchDonationPledges, getDonationPledges } from "../data/donationStore"
 import { siteIdentity } from "../data/siteIdentity"
 import {
   approveMembershipApplication,
@@ -14,16 +15,15 @@ import {
 } from "../data/membershipStore"
 
 const defaultSettings = {
-  upiId: siteIdentity.upiId,
+  accountHolder: siteIdentity.bank.accountHolder,
+  accountNumber: siteIdentity.bank.accountNumber,
+  bankName: siteIdentity.bank.bankName,
+  ifsc: siteIdentity.bank.ifsc,
+  branch: siteIdentity.bank.branch,
+  accountType: siteIdentity.bank.accountType,
   phone: siteIdentity.phone,
   email: siteIdentity.email,
 }
-
-const pledges = [
-  { name: "Ravi Kumar", amount: "Rs. 2,500", program: "Women empowerment", status: "Follow up" },
-  { name: "Neha Singh", amount: "Rs. 1,000", program: "Education access", status: "Receipt pending" },
-  { name: "Amit Verma", amount: "Rs. 5,000", program: "Farmer support", status: "Confirmed" },
-]
 
 function AdminDashboard() {
   const navigate = useNavigate()
@@ -35,6 +35,7 @@ function AdminDashboard() {
   const [applications, setApplications] = useState(() => getMembershipApplications())
   const [members, setMembers] = useState(() => getMembers())
   const [emailLog, setEmailLog] = useState(() => getEmailLog())
+  const [pledges, setPledges] = useState(() => getDonationPledges())
 
   useEffect(() => {
     const session = localStorage.getItem("avard-admin-session")
@@ -43,6 +44,9 @@ function AdminDashboard() {
       return
     }
 
+    fetchDonationPledges()
+      .then(setPledges)
+      .catch(() => setPledges(getDonationPledges()))
   }, [navigate])
 
   const updateSetting = (event) => {
@@ -65,6 +69,7 @@ function AdminDashboard() {
     setApplications(getMembershipApplications())
     setMembers(getMembers())
     setEmailLog(getEmailLog())
+    setPledges(getDonationPledges())
   }
 
   const approveApplication = (applicationId) => {
@@ -125,7 +130,7 @@ function AdminDashboard() {
           </div>
 
           <div className="admin-stat-grid" id="overview">
-            <article><FaDonate /><span>Total Pledges</span><strong>128</strong></article>
+            <article><FaDonate /><span>Total Pledges</span><strong>{pledges.length}</strong></article>
             <article><FaUsers /><span>Membership Requests</span><strong>{applications.length}</strong></article>
             <article><FaBullhorn /><span>Campaigns</span><strong>6</strong></article>
             <article><FaEnvelopeOpenText /><span>Email Notices</span><strong>{emailLog.length}</strong></article>
@@ -135,10 +140,11 @@ function AdminDashboard() {
             <section className="admin-panel" id="pledges">
               <h2>Recent donation pledges</h2>
               <div className="admin-table">
-                {pledges.map((pledge) => (
-                  <div key={`${pledge.name}-${pledge.amount}`}>
-                    <span>{pledge.name}</span>
-                    <span>{pledge.amount}</span>
+                {pledges.length === 0 && <p className="admin-empty">No donation pledges submitted yet.</p>}
+                {pledges.slice(0, 8).map((pledge) => (
+                  <div key={pledge.id}>
+                    <span>{pledge.donorName}</span>
+                    <span>Rs. {Number(pledge.amount).toLocaleString("en-IN")}</span>
                     <span>{pledge.program}</span>
                     <strong>{pledge.status}</strong>
                   </div>
@@ -148,7 +154,12 @@ function AdminDashboard() {
 
             <form className="admin-panel" id="trust-settings" onSubmit={saveSettings}>
               <h2>Donation and trust settings</h2>
-              <label>UPI ID<input name="upiId" value={settings.upiId} onChange={updateSetting} /></label>
+              <label>Account holder<input name="accountHolder" value={settings.accountHolder} onChange={updateSetting} /></label>
+              <label>Account number<input name="accountNumber" value={settings.accountNumber} onChange={updateSetting} /></label>
+              <label>Bank name<input name="bankName" value={settings.bankName} onChange={updateSetting} /></label>
+              <label>IFSC<input name="ifsc" value={settings.ifsc} onChange={updateSetting} /></label>
+              <label>Branch<input name="branch" value={settings.branch} onChange={updateSetting} /></label>
+              <label>Account type<input name="accountType" value={settings.accountType} onChange={updateSetting} /></label>
               <label>Contact phone<input name="phone" value={settings.phone} onChange={updateSetting} /></label>
               <label>Contact email<input name="email" value={settings.email} onChange={updateSetting} /></label>
               <button type="submit">Save Settings</button>
