@@ -12,5 +12,6 @@ export const siteIdentity = {
     bankName: "Canara Bank",
     branch: "D.D.U. Marg, New Delhi - 110002",
     accountType: "Savings Bank Account",
+    upiId: "10346059001777@cnrb",
   },
 }
