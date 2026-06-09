@@ -3,6 +3,7 @@
 .projects-section,
 .contact-section,
 .donate-page-section,
+.legal-section,
 .values-section,
 .community-programs-section,
 .people-highlight-section,
@@ -855,5 +856,110 @@
 .members-empty p {
   margin: 0;
   color: var(--muted);
+}
+
+.legal-page-hero {
+  background:
+    linear-gradient(135deg, rgba(13, 32, 24, 0.86), rgba(20, 83, 58, 0.86)),
+    url("../assets/images/avard-website/photos/banner.jpg") center/cover;
+}
+
+.legal-section {
+  background: linear-gradient(135deg, #ffffff 0%, var(--soft) 56%, var(--cream) 100%);
+}
+
+.legal-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.legal-sidebar,
+.legal-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.legal-sidebar {
+  position: sticky;
+  top: 104px;
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+}
+
+.legal-sidebar h2 {
+  margin: 0 0 10px;
+  color: var(--green-dark);
+  font-size: var(--text-xl);
+}
+
+.legal-sidebar a {
+  display: block;
+  padding: 11px 13px;
+  color: #33414f;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-weight: var(--weight-bold);
+  line-height: 1.35;
+}
+
+.legal-sidebar a:hover,
+.legal-sidebar a.active {
+  color: var(--green-dark);
+  background: #eef7f1;
+  border-color: rgba(31, 122, 83, 0.16);
+}
+
+.legal-card {
+  padding: clamp(26px, 5vw, 54px);
+}
+
+.legal-updated {
+  display: inline-flex;
+  margin: 0 0 28px;
+  padding: 8px 14px;
+  color: var(--orange-dark);
+  background: rgba(242, 107, 47, 0.1);
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-heavy);
+}
+
+.legal-card section + section {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.legal-card h2 {
+  margin: 0 0 14px;
+  color: var(--green-dark);
+  font-size: var(--heading-sm);
+}
+
+.legal-card p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.82;
+}
+
+.legal-card p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-card a {
+  color: var(--green-dark);
+  font-weight: var(--weight-bold);
+}
+
+.legal-contact-box {
+  padding: 24px;
+  background: #f7fbf8;
+  border: 1px solid rgba(31, 122, 83, 0.14);
+  border-radius: 8px;
 }
 

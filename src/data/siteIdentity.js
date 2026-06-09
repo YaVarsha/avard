@@ -4,7 +4,7 @@ export const siteIdentity = {
   address: "5 (FF), Institutional Area, Deen Dayal Upadhyay Marg, Kamla Devi Bhawan, New Delhi - 110002, India",
   phone: "(91-11) 41424885",
   email: "avard.nd@gmail.com",
-  website: "www.avard.org",
+  website: "https://avard.onrender.com",
   bank: {
     accountHolder: "ASSOCIATION OF VOLUNTARY AGENCIES FOR RURAL DEVELOPMENT",
     accountNumber: "0158101001777",

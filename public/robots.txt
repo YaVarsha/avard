@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://avard.org/sitemap.xml
+Sitemap: https://avard.onrender.com/sitemap.xml

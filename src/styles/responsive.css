@@ -54,6 +54,7 @@
   .newsletter-page-layout,
   .contact-layout,
   .donate-layout,
+  .legal-layout,
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -63,6 +64,10 @@
   }
 
   .newsletter-page-form {
+    position: static;
+  }
+
+  .legal-sidebar {
     position: static;
   }
 
@@ -179,7 +184,8 @@
   .rd-week-section,
   .donation-cta-section,
   .membership-section,
-  .newsletter-page-section {
+  .newsletter-page-section,
+  .legal-section {
     padding: 64px 0;
   }
 

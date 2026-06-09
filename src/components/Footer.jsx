@@ -51,6 +51,16 @@ function Footer() {
           </ul>
         </div>
 
+        <div className="footer-column">
+          <h3>Policies</h3>
+          <ul className="footer-links">
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/terms-and-conditions">Terms & Conditions</Link></li>
+            <li><Link to="/refund-cancellation-policy">Refund & Cancellation</Link></li>
+            <li><Link to="/shipping-policy">Shipping Policy</Link></li>
+          </ul>
+        </div>
+
         <div className="footer-column footer-contact-column">
           <h3>Contact</h3>
           <ul className="footer-contact">

@@ -18,8 +18,8 @@
 .footer-grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(280px, 1.4fr) minmax(160px, 0.72fr) minmax(170px, 0.78fr) minmax(230px, 0.92fr);
-  gap: 58px;
+  grid-template-columns: minmax(260px, 1.25fr) minmax(150px, 0.66fr) minmax(160px, 0.68fr) minmax(170px, 0.72fr) minmax(220px, 0.9fr);
+  gap: 36px;
   align-items: start;
   padding: 0 0 48px;
 }
